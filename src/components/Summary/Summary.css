@@ -1,0 +1,39 @@
+.summary {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card{
+    flex: 1;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card p{
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.card strong {
+    font-size: 24px;
+}
+
+.entrada strong{
+    color: #28a745;
+}
+
+.saida strong{
+    color: #dc3545;
+}
+
+.saldo strong{
+    color: #17a2b8;
+}

@@ -1,0 +1,9 @@
+.app-container {
+  width: 100%;
+  min-height: 100vh; /* ocupa a tela toda */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza conteúdo na horizontal */
+  justify-content: flex-start; /* conteúdo começa no topo */
+  padding: 2rem;
+}
