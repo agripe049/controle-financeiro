@@ -1,0 +1,89 @@
+import { useState } from "react"
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "../../services/FirebaseConfig"
+import './NewTransactionForm.css'
+
+const NewTransactionForm = () => {
+
+    const [date, setDate] = useState("");
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+    const [value, setValue] = useState("");
+    const [type, setType] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        if (!date || !description || !category || !value || !type) {
+            alert("Preencha todos os campos antes de salvar");
+            return
+        }
+
+        try {
+            await addDoc(collection(db, "transactions"), {
+                date,
+                description,
+                category,
+                value,
+                type,
+            })
+
+            alert("Transação adicionada com sucesso!")
+
+            // Limpar os campos
+            setDate("");
+            setDescription("");
+            setCategory("");
+            setValue("");
+            setType("");
+        } catch (error) {
+            console.error("Erro ao adicionar transação: ", error)
+        }
+    }
+
+    return (
+        <form className="form-container" onSubmit={handleSubmit}>
+            <input 
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)} 
+                required
+            />
+            <input 
+                type="text"
+                placeholder="Descrição"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)} 
+                required
+            />
+            <input 
+                type="text"
+                placeholder="Categoria"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)} 
+                required
+            />
+            <input 
+                type="text"
+                placeholder="Valor (ex: 1.250,00)"
+                value={value}
+                onChange={(e) => setValue(e.target.value)} 
+                required
+            />
+            
+            <select
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                required
+            >
+                <option value="">Selecione o tipo</option>
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+
+            <button type="submit">Adicionar</button>
+        </form>
+    )
+}
+
+export default NewTransactionForm;
