@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 900px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
     padding: 1rem;
@@ -14,19 +14,4 @@
 .header h1 {
     font-size: 24px;
     color: #333;
-}
-
-.new-transaction-btn {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: .2s;
-    font-size: 18px;
-}
-
-.new-transaction-btn:hover {
-    background-color: #218838;
 }

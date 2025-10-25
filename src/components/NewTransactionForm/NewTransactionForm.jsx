@@ -7,14 +7,13 @@ const NewTransactionForm = () => {
 
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
     const [value, setValue] = useState("");
     const [type, setType] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (!date || !description || !category || !value || !type) {
+        if (!date || !description || !value || !type) {
             alert("Preencha todos os campos antes de salvar");
             return
         }
@@ -23,7 +22,6 @@ const NewTransactionForm = () => {
             await addDoc(collection(db, "transactions"), {
                 date,
                 description,
-                category,
                 value,
                 type,
             })
@@ -33,7 +31,6 @@ const NewTransactionForm = () => {
             // Limpar os campos
             setDate("");
             setDescription("");
-            setCategory("");
             setValue("");
             setType("");
         } catch (error) {
@@ -54,13 +51,6 @@ const NewTransactionForm = () => {
                 placeholder="Descrição"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                required
-            />
-            <input
-                type="text"
-                placeholder="Categoria"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
                 required
             />
             
@@ -96,7 +86,7 @@ const NewTransactionForm = () => {
                 <option value="saida">Saída</option>
             </select>
 
-            <button type="submit">Adicionar</button>
+            <button type="submit" className="new-transaction-btn">+ Nova Transação</button>
         </form>
     )
 }

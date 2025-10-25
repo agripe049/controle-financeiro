@@ -11,7 +11,6 @@ const TransactionsTable = ({ transactions }) => {
                     <tr>
                         <th>Data</th>
                         <th>Descrição</th>
-                        <th>Categorias</th>
                         <th>Valor</th>
                     </tr>
                 </thead>
@@ -21,7 +20,6 @@ const TransactionsTable = ({ transactions }) => {
                         <tr key={t.id}>
                             <td>{t.date}</td>
                             <td>{t.description}</td>
-                            <td>{t.category}</td>
                             <td className={t.type}>{t.type === 'saida' ?
                                 `- ${t.value}` :
                                 ` ${t.value}`}</td>
