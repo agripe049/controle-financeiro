@@ -43,34 +43,49 @@ const NewTransactionForm = () => {
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
-            <input 
+            <input
                 type="date"
                 value={date}
-                onChange={(e) => setDate(e.target.value)} 
+                onChange={(e) => setDate(e.target.value)}
                 required
             />
-            <input 
+            <input
                 type="text"
                 placeholder="Descrição"
                 value={description}
-                onChange={(e) => setDescription(e.target.value)} 
+                onChange={(e) => setDescription(e.target.value)}
                 required
             />
-            <input 
+            <input
                 type="text"
                 placeholder="Categoria"
                 value={category}
-                onChange={(e) => setCategory(e.target.value)} 
-                required
-            />
-            <input 
-                type="text"
-                placeholder="Valor (ex: 1.250,00)"
-                value={value}
-                onChange={(e) => setValue(e.target.value)} 
+                onChange={(e) => setCategory(e.target.value)}
                 required
             />
             
+            <input
+                type="text"
+                placeholder="Valor (ex: R$ 1.250,00)"
+                value={value}
+                onChange={(e) => {
+                    const valor = e.target.value.replace(/\D/g, ""); // remove tudo que não for número
+
+                    if (!valor) {
+                        setValue("");
+                        return;
+                    }
+
+                    const valorFormatado = (Number(valor) / 100).toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                    });
+
+                    setValue(valorFormatado); // mantém como string formatada
+                }}
+                required
+            />
+
             <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}

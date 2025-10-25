@@ -23,8 +23,8 @@ const TransactionsTable = ({ transactions }) => {
                             <td>{t.description}</td>
                             <td>{t.category}</td>
                             <td className={t.type}>{t.type === 'saida' ?
-                                `- R$ ${t.value.toFixed(2)}` :
-                                `R$ ${t.value.toFixed(2)}`}</td>
+                                `- ${t.value}` :
+                                ` ${t.value}`}</td>
                         </tr>
                     ))}
                 </tbody>

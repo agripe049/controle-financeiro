@@ -5,7 +5,7 @@ import Summary from './components/Summary/Summary';
 import TransactionsTable from './components/TransactionsTable/TransactionsTable';
 import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import {db} from "./services/FirebaseConfig"
+import { db } from "./services/FirebaseConfig"
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
     const fetchTransactions = async () => {
       const transactionsCollection = collection(db, "transactions")
       const snapshot = await getDocs(transactionsCollection)
-      const data = snapshot.dosc.map(doc => ({
+      const data = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }))
@@ -29,7 +29,7 @@ function App() {
       <Header />
       <Summary />
       <NewTransactionForm />
-      <TransactionsTable transactions={transactions}/>
+      <TransactionsTable transactions={transactions} />
     </div>
   )
 }
