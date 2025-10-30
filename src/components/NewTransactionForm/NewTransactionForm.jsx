@@ -3,7 +3,7 @@ import { collection, addDoc } from "firebase/firestore"
 import { db } from "../../services/FirebaseConfig"
 import './NewTransactionForm.css'
 
-const NewTransactionForm = () => {
+const NewTransactionForm = ({ onTransactionAdded }) => {
 
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
@@ -15,24 +15,26 @@ const NewTransactionForm = () => {
 
         if (!date || !description || !value || !type) {
             alert("Preencha todos os campos antes de salvar");
-            return
+            return;
         }
 
         try {
-            await addDoc(collection(db, "transactions"), {
+            const docRef = await addDoc(collection(db, "transactions"), {
                 date,
                 description,
                 value,
                 type,
-            })
+            });
 
-            alert("Transação adicionada com sucesso!")
+            if (onTransactionAdded) onTransactionAdded({ id: docRef.id, date, description, value, type });
 
             // Limpar os campos
             setDate("");
             setDescription("");
             setValue("");
             setType("");
+
+            alert("Transação adicionada com sucesso!")
         } catch (error) {
             console.error("Erro ao adicionar transação: ", error)
         }
@@ -53,7 +55,7 @@ const NewTransactionForm = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 required
             />
-            
+
             <input
                 type="text"
                 placeholder="Valor (ex: R$ 1.250,00)"

@@ -22,13 +22,18 @@ function App() {
       setTransactions(data)
     };
     fetchTransactions()
-  }, [])
+  }, []);
+
+  //Adiciona a nova transação direto no estado
+  const addTransaction = (newTransaction) => {
+    setTransactions(prev => [...prev, newTransaction]);
+  };
 
   return (
     <div className="app-container">
       <Header />
-      <Summary />
-      <NewTransactionForm />
+      <Summary transactions={transactions}/>
+      <NewTransactionForm onTransactionAdded={addTransaction}/>
       <TransactionsTable transactions={transactions} />
     </div>
   )
