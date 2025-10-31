@@ -15,3 +15,13 @@
     font-size: 24px;
     color: #333;
 }
+
+@media screen and (max-width: 1020px) {
+    .header h1 {
+        font-size: 18px;
+    }
+    .header {
+        padding: 0.5rem;
+        width: 80%;
+    }
+}

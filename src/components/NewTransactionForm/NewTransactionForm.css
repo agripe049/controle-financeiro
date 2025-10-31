@@ -20,7 +20,7 @@
     color: #fff;
     border: none;
     padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 6px; 
     cursor: pointer;
     transition: .2s;
     font-size: 18px;
@@ -28,4 +28,20 @@
 
 .form-container button:hover{
     background-color: #218838;
+}
+
+@media screen and (max-width: 1020px) {
+    .form-container {
+        display: flex;
+    }
+    .form-container input,
+    .form-container select {
+        padding: 2px;
+        font-size: 12px;
+        width: 120px;
+    }
+    .form-container button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
 }

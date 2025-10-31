@@ -2,7 +2,7 @@ import './Summary.css'
 
 const Summary = ({ transactions }) => {
   const totalEntradas = transactions
-    .filter(t => t.type === "entrada")
+    .filter(t => t.type === "entrada") 
     .reduce((acc, t) => acc + parseFloat(t.value.replace(/[^\d,-]/g, "").replace(",", ".")), 0);
 
     const totalSaidas = transactions
