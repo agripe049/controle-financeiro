@@ -56,7 +56,7 @@ const NewTransactionForm = ({ onTransactionAdded, onTransactionUpdated, editingT
                 required
             />
             <input
-                type="text"
+                type="text" 
                 placeholder="Descrição"
                 value={description || ""}
                 onChange={(e) => setDescription(e.target.value)}

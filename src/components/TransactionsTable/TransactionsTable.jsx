@@ -7,7 +7,6 @@ const TransactionsTable = ({ transactions, onEdit, onDelete }) => {
     return (
         <section className='transactions'>
             <h2>Transações</h2>
- 
             <table className='transactions-table'>
                 <thead>
                     <tr>
