@@ -19,7 +19,7 @@ const Login = () => {
     setError("");
     setLoading(true)
 
-    try {
+    try { 
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/home')
     } catch (err) {
@@ -32,9 +32,9 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h1>Login</h1>
+      <h1>Faça seu login</h1>
       <form onSubmit={handleLogin}>
-        <label>Email</label>
+        <label>Email:</label>
         <input
           type="email"
           placeholder="Digite seu e-mail"
@@ -43,7 +43,7 @@ const Login = () => {
           required
         />
 
-        <label>Senha</label>
+        <label>Senha:</label>
         <input
           type="password"
           placeholder="Digite sua senha"
