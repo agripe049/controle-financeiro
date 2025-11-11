@@ -5,8 +5,9 @@ import Summary from "../../components/Summary/Summary";
 import TransactionsTable from "../../components/TransactionsTable/TransactionsTable";
 import { collection, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/FirebaseConfig";
+import DateFilter from "../../components/DateFilter/DateFilter";
 
-const Home = () => {
+const Home = ({}) => {
 
     const [transactions, setTransactions] = useState([]);
     const [editingTransaction, setEditingTransaction] = useState(null);
@@ -56,6 +57,7 @@ const Home = () => {
     return (
         <div className="app-container">
             <Header />
+            <DateFilter />
             <Summary transactions={transactions} />
             <NewTransactionForm
                 onTransactionAdded={addTransaction}
