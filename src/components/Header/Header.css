@@ -14,14 +14,18 @@
 .header h1 {
     font-size: 24px;
     color: #333;
+    text-align: center;
 }
 
 @media screen and (max-width: 1020px) {
     .header h1 {
         font-size: 18px;
+        text-align: center;
+        margin-left: 50px;
     }
     .header {
         padding: 0.5rem;
         width: 80%;
+        justify-content: center;
     }
 }

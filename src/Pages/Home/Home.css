@@ -1,0 +1,19 @@
+.home-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* 🔹 Ajuste para telas menores */
+@media screen and (max-width: 1020px) {
+  .home-content {
+    width: 95vw; /* ocupa quase toda a largura da tela */
+    max-width: none;
+    padding: 1.5rem;
+    overflow-x: auto;
+  }
+}
+

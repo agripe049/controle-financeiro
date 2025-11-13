@@ -3,14 +3,17 @@ import Header from "../../components/Header/Header";
 import NewTransactionForm from "../../components/NewTransactionForm/NewTransactionForm";
 import Summary from "../../components/Summary/Summary";
 import TransactionsTable from "../../components/TransactionsTable/TransactionsTable";
-import { collection, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../services/FirebaseConfig";
 import DateFilter from "../../components/DateFilter/DateFilter";
+import "./Home.css"
 
-const Home = ({}) => {
+
+const Home = () => {
 
     const [transactions, setTransactions] = useState([]);
     const [editingTransaction, setEditingTransaction] = useState(null);
+    const [filteredTransactions, setFilteredTransactions] = useState([])
 
     // 🔹 Buscar transações do Firestore
     useEffect(() => {
@@ -25,6 +28,10 @@ const Home = ({}) => {
         };
         fetchTransactions();
     }, []);
+
+    useEffect(() => {
+        setFilteredTransactions(transactions);
+    }, [transactions]);
 
     // 🔹 Adiciona transação nova
     const addTransaction = (newTransaction) => {
@@ -54,21 +61,37 @@ const Home = ({}) => {
         );
         setEditingTransaction(null);
     };
+
+    // filtrar transações
+    const handleFilter = (startDate, endDate) => {
+        const filtered = transactions.filter((t) => {
+            const transactionDate = new Date(t.date);
+            return (
+                transactionDate >= new Date(startDate) &&
+                transactionDate <= new Date(endDate)
+            );
+        })
+        setFilteredTransactions(filtered);
+    }
+
+
     return (
         <div className="app-container">
-            <Header />
-            <DateFilter />
-            <Summary transactions={transactions} />
-            <NewTransactionForm
-                onTransactionAdded={addTransaction}
-                onTransactionUpdated={handleUpdateTransaction}
-                editingTransaction={editingTransaction}
-            />
-            <TransactionsTable
-                transactions={transactions}
-                onEdit={handleEditTransaction}
-                onDelete={handleDeleteTransaction}
-            />
+            <div className="home-content">
+                <Header />
+                <DateFilter onFilter={handleFilter} />
+                <Summary transactions={filteredTransactions} />
+                <NewTransactionForm
+                    onTransactionAdded={addTransaction}
+                    onTransactionUpdated={handleUpdateTransaction}
+                    editingTransaction={editingTransaction}
+                />
+                <TransactionsTable
+                    transactions={filteredTransactions}
+                    onEdit={handleEditTransaction}
+                    onDelete={handleDeleteTransaction}
+                />
+            </div>
         </div>
     )
 }

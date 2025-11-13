@@ -14,3 +14,22 @@
     font-weight: 600;
     margin-right: 0.5rem;
 }
+
+.date-filter input {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.date-filter button {
+    padding: 4px 12px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.date-filter button:hover {
+    background-color: #34944a;
+}
