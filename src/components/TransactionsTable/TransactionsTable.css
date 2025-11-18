@@ -72,8 +72,8 @@
 
 @media screen and (max-width: 1020px) {
     .transactions {
-        width: 110%;
-        max-width: 400px;
+        width: 100%;
+        max-width: 100%;
         padding: 2px;
         min-height: auto;
     }
