@@ -6,7 +6,6 @@
     align-items: center;
     margin-bottom: 2rem;
     padding: 1rem;
-    background-color: #ffffff5d;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
@@ -21,7 +20,7 @@
     .header h1 {
         font-size: 18px;
         text-align: center;
-        margin-left: 50px;
+        margin-left: 60px;
     }
     .header {
         padding: 0.5rem;
