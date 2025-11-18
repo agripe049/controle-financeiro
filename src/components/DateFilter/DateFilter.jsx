@@ -22,6 +22,7 @@ const DateFilter = ({ onFilter }) => {
                     type="date"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
+                    placeholder="dd/mm/yyyy"
                 />
             </div>
 

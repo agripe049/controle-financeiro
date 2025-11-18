@@ -10,7 +10,7 @@ const TransactionsTable = ({ transactions, onEdit, onDelete }) => {
             <table className='transactions-table'>
                 <thead>
                     <tr>
-                        <th>Data</th>
+                        <th>Data</th> 
                         <th>Descrição</th>
                         <th>Valor</th>
                     </tr>
