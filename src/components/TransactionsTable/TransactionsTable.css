@@ -77,6 +77,9 @@
         padding: 2px;
         min-height: auto;
     }
+    .transactions-table {
+        width: 100%;
+    }
 
     .transactions h2 {
         font-size: 18px;
