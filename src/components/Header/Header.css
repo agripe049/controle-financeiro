@@ -1,6 +1,7 @@
 .header {
     width: 100%;
     max-width: 900px;
+    margin: 0 auto 2rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,20 +11,19 @@
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 28px;
     color: #333;
     text-align: center;
+    margin: 0;
 }
 
 @media screen and (max-width: 1020px) {
     .header h1 {
         font-size: 18px;
         text-align: center;
-        margin-left: 60px;
     }
     .header {
         padding: 0.5rem;
-        width: 80%;
         justify-content: center;
     }
 }

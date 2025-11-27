@@ -7,6 +7,6 @@ const Header = () => {
         {/*<button className='new-transaction-btn'>+ Nova transação</button>*/}
     </div>
   )
-}
+} 
 
 export default Header;
