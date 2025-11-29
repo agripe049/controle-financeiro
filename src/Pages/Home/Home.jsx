@@ -6,6 +6,8 @@ import TransactionsTable from "../../components/TransactionsTable/TransactionsTa
 import { collection, getDocs, doc, deleteDoc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../services/FirebaseConfig";
 import DateFilter from "../../components/DateFilter/DateFilter";
+import { auth } from "../../services/FirebaseConfig";
+import { query, where } from "firebase/firestore";
 import "./Home.css"
 
 
@@ -18,8 +20,19 @@ const Home = () => {
     // 🔹 Buscar transações do Firestore
     useEffect(() => {
         const fetchTransactions = async () => {
-            const transactionsCollection = collection(db, "transactions");
-            const snapshot = await getDocs(transactionsCollection);
+            const user = auth.currentUser;
+
+            if(!user) {
+                console.log("Usuário não autenticado.");
+                return;
+            }
+
+            const q = query(
+                collection(db, "transactions"),
+                where("userId", "==", user.uid)
+            );
+
+            const snapshot = await getDocs(q);
             const data = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),

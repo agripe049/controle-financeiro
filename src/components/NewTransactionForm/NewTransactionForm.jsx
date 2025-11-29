@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { collection, addDoc } from "firebase/firestore"
-import { db } from "../../services/FirebaseConfig"
+import { db, auth } from "../../services/FirebaseConfig"
 import './NewTransactionForm.css'
 
 const NewTransactionForm = ({ onTransactionAdded, onTransactionUpdated, editingTransaction }) => {
@@ -31,15 +31,22 @@ const NewTransactionForm = ({ onTransactionAdded, onTransactionUpdated, editingT
             const updated = { ...editingTransaction, date, description, value, type }
             await onTransactionUpdated(updated);
         } else {
+            const user = auth.currentUser;
+
+            if(!user) {
+                alert("Usuário não autenticado")
+                return;
+            }
+            
             const docRef = await addDoc(collection(db, "transactions"), {
                 date, 
                 description,
                 value,
                 type,
+                userId: user.uid,
             });
-            onTransactionAdded({ id: docRef.id, date, description, value, type})
+            onTransactionAdded({ id: docRef.id, date, description, value, type, userId: user.uid});
         }
-
             // Limpar os campos
             setDate("");
             setDescription("");
