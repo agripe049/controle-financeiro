@@ -1,11 +1,11 @@
-💰 Controle Financeiro
+## 💰 Controle Financeiro
 
 Aplicação de controle financeiro pessoal desenvolvida com React (Vite) e integrada ao Firebase Authentication e Firestore.
 Cada usuário visualiza apenas suas próprias transações, garantindo segurança e isolamento de dados — ideal para um modelo simples de SaaS.
 
 ---
 
-🚀 Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
 ⚛️ React (Vite)
 🔐 Firebase Authentication
@@ -27,25 +27,25 @@ Cada usuário visualiza apenas suas próprias transações, garantindo seguranç
 
 🔧 Como executar
 
-# Instalar dependências
+## Instalar dependências
 npm install
 
-# Rodar o projeto
+## Rodar o projeto
 npm run dev
 
-✨ Objetivo do Projeto
+## ✨ Objetivo do Projeto
 
 Criar um sistema simples de controle financeiro para múltiplos clientes, com autenticação individual e dados isolados por usuário.
 
 ---
-🌐 Acesso Online
+## 🌐 Acesso Online
 
 👉 Link da aplicação hospedada:
 https://controle-financeiro-indol-ten.vercel.app/
 
 ---
 
-👤 Acesso de Demonstração
+## 👤 Acesso de Demonstração
 
 Use as credenciais abaixo para testar o sistema:
 
@@ -54,7 +54,7 @@ Senha: Demo@123
 
 ---
 
-🖼️ Prints da Aplicação
+## 🖼️ Prints da Aplicação
 
 Tela de Login
 
