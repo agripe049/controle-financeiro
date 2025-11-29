@@ -1,16 +1,68 @@
-# React + Vite
+## 💰 Controle Financeiro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de controle financeiro pessoal desenvolvida com React (Vite) e integrada ao Firebase Authentication e Firestore.
+Cada usuário visualiza apenas suas próprias transações, garantindo segurança e isolamento de dados — ideal para um modelo simples de SaaS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## React Compiler
+⚛️ React (Vite)
+🔐 Firebase Authentication
+🔥 Firebase Firestore
+🎨 CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🔥 Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Login com autenticação do Firebase
+- Adicionar entradas e saídas
+- Listar transações do usuário logado
+- Exibir total de receitas, despesas e saldo atual
+- Integração direta com Firestore 
+- Filtragem por data
+
+---
+
+🔧 Como executar
+
+## Instalar dependências
+npm install
+
+## Rodar o projeto
+npm run dev
+
+## ✨ Objetivo do Projeto
+
+Criar um sistema simples de controle financeiro para múltiplos clientes, com autenticação individual e dados isolados por usuário.
+
+---
+## 🌐 Acesso Online
+
+👉 Link da aplicação hospedada:
+https://controle-financeiro-indol-ten.vercel.app/
+
+---
+
+## 👤 Acesso de Demonstração
+
+Use as credenciais abaixo para testar o sistema:
+
+Email: recrutador@demo.com
+Senha: Demo@123
+
+---
+
+## 🖼️ Prints da Aplicação
+
+Tela de Login
+
+<img width="1312" height="918" alt="login" src="https://github.com/user-attachments/assets/b1e62fe3-b228-48ff-963e-b1a9667cd6ed" />
+
+
+Página Principal
+
+<img width="1508" height="917" alt="Home" src="https://github.com/user-attachments/assets/afd2e671-0667-463e-b53c-7bcfbe648a2b" />
+
+
